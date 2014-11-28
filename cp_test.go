@@ -9,7 +9,7 @@ func TestCP(t *testing.T) {
 
 	// test one model
 	P(DEFAULT, "Test default color P() model", "\n")
-	P(WARING, "Remote latest version %v %v latest version %v.\n", "0.10.28", "=", "0.1.0.26")
+	P(WARNING, "Remote latest version %v %v latest version %v.\n", "0.10.28", "=", "0.1.0.26")
 	P(DEFAULT, "\n")
 
 	// test tow model

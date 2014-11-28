@@ -21,12 +21,12 @@ import (
 
 // Print flag, include:
 //  - DEFAULT
-//  - WARING
+//  - WARNING
 //  - ERROR
 //  - NOTICE
 const (
 	DEFAULT = ""
-	WARING  = "Waring"
+	WARNING  = "Warning"
 	ERROR   = "Error"
 	NOTICE  = "Notice"
 )
@@ -72,12 +72,12 @@ type CP struct {
 
 // ANSI coloured text to the standard output
 //
-//  flag   : Include 'Default', 'Waring', 'Error', 'Notice'
+//  flag   : Include 'Default', 'Warning', 'Error', 'Notice'
 //  message: Print content
 //  args   : Variable parameter, include string, CP type, when args last value is "\n", auto new line.
 //
 // For example 1:
-//  P(WARING, "Remote latest version %v = latest version %v.\n", param1, param2)
+//  P(WARNING, "Remote latest version %v = latest version %v.\n", param1, param2)
 //
 // For example 2:
 //  cp := CP{1, true, 2, true, localVersion}
@@ -119,7 +119,7 @@ func P(flag string, message interface{}, args ...interface{}) {
 
 // ANSI coloured erro text to the standard output
 //
-//  flag   : Include 'Default', 'Waring', 'Error', 'Notice'
+//  flag   : Include 'Default', 'Warning', 'Error', 'Notice'
 //  message: Print content
 //  err    : Error content
 //
@@ -147,9 +147,9 @@ func stateColor(state string) {
 	case NOTICE:
 		ct.ChangeColor(ct.Blue, false, ct.White, false)
 		fmt.Printf("Notice: ")
-	case WARING:
+	case WARNING:
 		ct.ChangeColor(ct.Green, false, ct.Red, false)
-		fmt.Printf("Waring: ")
+		fmt.Printf("Warning: ")
 	case ERROR:
 		ct.ChangeColor(ct.Red, false, ct.Green, false)
 		fmt.Printf("Error: ")
@@ -173,7 +173,7 @@ func customColor(cp interface{}) {
 	if fgColor > 8 || fgColor < 0 || bgColor > 8 || bgColor < 0 {
 		normalColor(msg)
 		fmt.Println()
-		Error(WARING, "values range error, values range include 0 ~ 8, Error: ", "index out of range")
+		Error(WARNING, "values range error, values range include 0 ~ 8, Error: ", "index out of range")
 		return
 	}
 

@@ -14,7 +14,7 @@ Example
 	import . "github.com/Kenshin/cprint"
 
 	// test ont
-	P(WARING, "Remote latest version %v %v latest version %v.\n", "0.10.28", "=", "0.1.0.26")
+	P(WARNING, "Remote latest version %v %v latest version %v.\n", "0.10.28", "=", "0.1.0.26")
 
 	// test tow
 	cp := CP{Red, false, None, false, "="}
